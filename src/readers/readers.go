@@ -20,7 +20,7 @@ func read(in io.Reader, s *scales.Scales) error {
 	}
 
 	if readed != readLimit {
-		return errors.New("Expected 377 ansers and gender at the end")
+		return errors.New("expected 377 ansers and gender at the end")
 	}
 
 	// Set answers
@@ -31,7 +31,7 @@ func read(in io.Reader, s *scales.Scales) error {
 		case '1':
 			s.RecieveAnswer(i, 1)
 		default:
-			return errors.New("Unexpeted symbol. Use (1-yes / 0-no) and (g-girl/b-boy) at the end")
+			return errors.New("unexpeted symbol. Use (1-yes / 0-no) and (g-girl/b-boy) at the end")
 		}
 	}
 
@@ -42,7 +42,7 @@ func read(in io.Reader, s *scales.Scales) error {
 	case 'b':
 		s.SetGender().Boy()
 	default:
-		return errors.New("Unexpeted symbol. Use (1-yes / 0-no) and (g-girl/b-boy) at the end")
+		return errors.New("unexpeted symbol. Use (1-yes / 0-no) and (g-girl/b-boy) at the end")
 	}
 
 	return nil

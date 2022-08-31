@@ -16,11 +16,11 @@ type Scales struct {
 
 func (s *Scales) RecieveAnswer(index int, answer int) error {
 	if index < 0 || index >= ANSWERSLIM {
-		return errors.New("Invalid index")
+		return errors.New("invalid index")
 	}
 
 	if answer != 0 && answer != 1 {
-		return errors.New(fmt.Sprintln("Wrong answer:", answer))
+		return errors.New(fmt.Sprintln("wrong answer:", answer))
 	}
 
 	s.answers[index] = answer

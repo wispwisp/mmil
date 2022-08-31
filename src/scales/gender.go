@@ -19,11 +19,11 @@ func (g *gender) Girl() {
 
 func (g *gender) validate() error {
 	if g.boy && g.girl {
-		return errors.New("Both gender set up")
+		return errors.New("both gender set up")
 	}
 
 	if !g.boy && !g.girl {
-		return errors.New("No gender specified")
+		return errors.New("no gender specified")
 	}
 
 	return nil
