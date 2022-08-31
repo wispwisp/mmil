@@ -9,13 +9,15 @@ import (
 )
 
 type Args struct {
-	ReadFromFile  *bool
-	InputFileName *string
+	ReadFromFile   *bool
+	InputFileName  *string
+	OutputFileName *string
 }
 
 func registerArgs() (args Args) {
 	args.ReadFromFile = flag.Bool("fromfile", true, "read input from file")
 	args.InputFileName = flag.String("filename", "input.txt", "input file name")
+	args.OutputFileName = flag.String("outfilename", "result.txt", "output file name")
 	flag.Parse()
 	return
 }
@@ -43,6 +45,10 @@ func main() {
 	if err != nil {
 		fmt.Println("Error evaluating result:", err)
 	} else {
-		res.PrintScales()
+		if *args.ReadFromFile {
+			res.WriteToFile(*args.OutputFileName)
+		} else {
+			res.PrintScales()
+		}
 	}
 }
